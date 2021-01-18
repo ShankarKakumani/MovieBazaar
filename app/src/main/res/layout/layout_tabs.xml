@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/appbackground"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/editPicture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="30dp"
+        android:orientation="horizontal">
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/avatar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/avatar_one"
+            android:visibility="visible"
+            app:civ_border="false"
+            android:layout_marginEnd="5dp"
+            app:civ_border_color="@color/blue_800"
+            app:civ_shadow="true"
+            app:civ_shadow_radius="0.0" />
+
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
+
+    <LinearLayout
+        android:id="@+id/settingsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="25dp"
+        android:paddingEnd="15dp"
+        style="@style/SelectableItemBackground"
+        android:focusable="true">
+
+        <ImageButton
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@color/transparent"
+            android:scaleType="fitXY"
+            android:tint="@color/blue_grey_100"
+            app:srcCompat="@drawable/ic_settings" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:text="FAQ"
+            android:textColor="@color/white" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_arrow_right"
+            app:tint="@color/black" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="0dp" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
+
+    <LinearLayout
+        android:id="@+id/aboutLayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        style="@style/SelectableItemBackground"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="25dp"
+        android:paddingEnd="15dp">
+
+        <ImageButton
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@color/transparent"
+            android:scaleType="fitXY"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/ic_info_outline_black_24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:text="About Us"
+            android:textColor="@color/white" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_arrow_right"
+            app:tint="@color/black" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="0dp" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
+
+    <LinearLayout
+        android:id="@+id/logoutLayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="25dp"
+        android:paddingEnd="15dp"
+        style="@style/SelectableItemBackground">
+
+        <ImageButton
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@color/transparent"
+            android:scaleType="fitXY"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/ic_exit_to_app_black_24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:text="Logout"
+            android:textColor="@color/white" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_arrow_right"
+            app:tint="@color/black" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="0dp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

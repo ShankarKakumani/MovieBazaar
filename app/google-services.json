@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "332614392578",
+    "project_id": "moviebazaar-a22bd",
+    "storage_bucket": "moviebazaar-a22bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332614392578:android:bf341a4a088032bc04c01b",
+        "android_client_info": {
+          "package_name": "com.movie.moviebazaar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "332614392578-dqgmi1hof9cq4k4d9hfi1cjkj8hklo30.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.movie.moviebazaar",
+            "certificate_hash": "65ed79ffcab3e6fd68faf6ee73cf5415187aa0b6"
+          }
+        },
+        {
+          "client_id": "332614392578-ta221p1r2i932s5h2amhfqd55a08p06n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZekAiQh2ilOGvEwmLrkeDKocDjgH-vo8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "332614392578-ta221p1r2i932s5h2amhfqd55a08p06n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

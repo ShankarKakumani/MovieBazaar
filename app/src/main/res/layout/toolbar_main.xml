@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    app:contentInsetEnd="0dp"
+    app:contentInsetLeft="0dp"
+    app:contentInsetRight="0dp"
+    app:contentInsetStart="0dp"
+    app:elevation="0dp"
+    android:background="@color/black"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp">
+
+        <TextView
+            android:id="@+id/toolBarText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:text="Latest Movies"
+            android:visibility="gone"
+            android:layout_marginStart="40dp"
+            android:fontFamily="@font/ubuntu"
+            android:textColor="@color/blue_grey_100"
+            tools:ignore="RtlSymmetry" />
+
+        <ImageButton
+            android:id="@+id/searchToolbar"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:tint="@color/white"
+            android:layout_alignParentEnd="true"
+            app:srcCompat="@drawable/ic_search" />
+
+    </RelativeLayout>
+
+
+</androidx.appcompat.widget.Toolbar>

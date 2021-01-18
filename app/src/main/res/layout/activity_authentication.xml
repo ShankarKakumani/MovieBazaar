@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/dark_gray"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationView"
+                android:layout_width="wrap_content"
+                android:layout_height="550.0dip"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="young_people.json"
+                app:lottie_loop="true"
+                app:lottie_repeatMode="reverse" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-40.0dip"
+                android:fontFamily="@font/ubuntu"
+                android:gravity="center"
+                android:text="Login / Register"
+                android:textColor="@color/light_blue_50"
+                android:textSize="20.0sp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40.0dip"
+                app:cardCornerRadius="6.0dip">
+
+                <LinearLayout
+                    android:id="@+id/googleSignIn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10.0dip">
+
+                    <ImageView
+                        android:layout_width="25.0dip"
+                        android:layout_height="25.0dip"
+                        android:src="@drawable/ic_google" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10.0dip"
+                        android:text="Continue with Google"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

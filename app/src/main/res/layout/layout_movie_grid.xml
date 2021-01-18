@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/movieLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="120dp"
+    android:layout_height="170dp"
+    app:cardCornerRadius="5dp"
+    app:cardUseCompatPadding="true"
+    android:transitionName="cardname"
+    app:cardBackgroundColor="@color/grey_800"
+    android:background="?attr/selectableItemBackground"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/movieImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+
+        <ProgressBar
+            android:id="@+id/movieProgressBar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="5dp"
+            />
+
+        <TextView
+            android:id="@+id/movieNameView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:visibility="visible"
+            android:text="Srimanthudu"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
