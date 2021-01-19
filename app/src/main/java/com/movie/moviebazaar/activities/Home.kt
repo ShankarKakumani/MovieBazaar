@@ -37,13 +37,13 @@ class Home : AppCompatActivity() {
     private val fm: FragmentManager = supportFragmentManager
     private var active: Fragment = firstFragment
 
-    private var parent_view: View? = null
+    private var parentView: View? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        parent_view = findViewById(android.R.id.content)
+        parentView = findViewById(android.R.id.content)
         initNavigationMenu()
 
         logoutLayout.setOnClickListener { logout() }
@@ -63,7 +63,7 @@ class Home : AppCompatActivity() {
                         .placeholder(R.drawable.ph_rect_vertical)
                         .skipMemoryCache(false)
                         .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                        .into(avatar);
+                        .into(avatar)
 
                 userName.text = profile.displayName
             }
@@ -101,7 +101,7 @@ class Home : AppCompatActivity() {
     }
 
     private fun initNavigationMenu() {
-        val nav_view = findViewById<View>(R.id.nav_view) as NavigationView
+        val navView = findViewById<View>(R.id.nav_view) as NavigationView
         val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
         val toggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
             this,
@@ -110,13 +110,10 @@ class Home : AppCompatActivity() {
             R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
         ) {
-            override fun onDrawerOpened(drawerView: View) {
-                super.onDrawerOpened(drawerView)
-            }
         }
         drawer.setDrawerListener(toggle)
         toggle.syncState()
-        nav_view.setNavigationItemSelectedListener { item: MenuItem ->
+        navView.setNavigationItemSelectedListener { item: MenuItem ->
             Toast.makeText(
                 applicationContext,
                 item.title.toString() + " Selected",

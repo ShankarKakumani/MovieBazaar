@@ -9,7 +9,9 @@
         android:roundIcon="@drawable/popcorn"
         android:supportsRtl="true"
         android:theme="@style/Theme.Moviebazaar">
-        <activity android:name=".activities.Authentication"
+        <activity android:name=".activities.MovieInfo"></activity>
+        <activity
+            android:name=".activities.Authentication"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +21,7 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".activities.Home" />
+        <activity android:name=".activities.MovieLanguage" />
     </application>
 
 </manifest>
