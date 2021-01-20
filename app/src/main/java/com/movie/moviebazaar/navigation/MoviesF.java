@@ -67,7 +67,7 @@ public class MoviesF extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mView = inflater.inflate(R.layout.fragment_home, container, false);
+        mView = inflater.inflate(R.layout.fragment_movies, container, false);
 
 
         movieShimmerLayout = mView.findViewById(R.id.movieShimmerLayout);
@@ -240,7 +240,7 @@ public class MoviesF extends Fragment {
                     Intent i = new Intent(getContext(), MovieInfo.class);
 
                     Bundle bundle = new Bundle();
-                    i.putExtra("IMAGE_URlL", model.getImageUrlL());
+                    i.putExtra("imageUrl", model.getImageUrlL());
                     i.putExtra("movieName", MovieAdapter.getRef(position).getKey());
                     i.putExtra("movieYear", model.getMovieYear());
                     i.putExtra("trailerUrl", model.getTrailerUrl());
@@ -334,7 +334,7 @@ public class MoviesF extends Fragment {
                     Intent i = new Intent(getContext(), MovieInfo.class);
 
                     Bundle bundle = new Bundle();
-                    i.putExtra("IMAGE_URlL", model.getImageUrlL());
+                    i.putExtra("imageUrl", model.getImageUrlL());
                     i.putExtra("movieName", hindiMovieAdapter.getRef(position).getKey());
                     i.putExtra("movieYear", model.getMovieYear());
                     i.putExtra("trailerUrl", model.getTrailerUrl());
@@ -428,7 +428,7 @@ public class MoviesF extends Fragment {
                     Intent i = new Intent(getContext(), MovieInfo.class);
 
                     Bundle bundle = new Bundle();
-                    i.putExtra("IMAGE_URlL", model.getImageUrlL());
+                    i.putExtra("imageUrl", model.getImageUrlL());
                     i.putExtra("movieName", teluguMovieAdapter.getRef(position).getKey());
                     i.putExtra("movieYear", model.getMovieYear());
                     i.putExtra("trailerUrl", model.getTrailerUrl());
@@ -521,7 +521,7 @@ public class MoviesF extends Fragment {
                     Intent i = new Intent(getContext(), MovieInfo.class);
 
                     Bundle bundle = new Bundle();
-                    i.putExtra("IMAGE_URlL", model.getImageUrlL());
+                    i.putExtra("imageUrl", model.getImageUrlL());
                     i.putExtra("movieName", tamilMovieAdapter.getRef(position).getKey());
                     i.putExtra("movieYear", model.getMovieYear());
                     i.putExtra("trailerUrl", model.getTrailerUrl());

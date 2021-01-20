@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
@@ -25,7 +26,9 @@ import com.movie.moviebazaar.navigation.HomeF
 import com.movie.moviebazaar.navigation.MoviesF
 import com.shankar.customtoast.StatusBar
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_home.toolbar
 import kotlinx.android.synthetic.main.layout_tabs.*
+import kotlinx.android.synthetic.main.toolbar_main.*
 
 
 class Home : AppCompatActivity() {
@@ -43,10 +46,13 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        MobileAds.initialize(this) {}
+
         parentView = findViewById(android.R.id.content)
         initNavigationMenu()
 
         logoutLayout.setOnClickListener { logout() }
+        aboutLayout.setOnClickListener { startActivity(Intent(this,AboutUs::class.java)) }
 
         bottomNavigation()
         loadData()
@@ -95,9 +101,11 @@ class Home : AppCompatActivity() {
                     active = thirdFragment
                     return@setOnNavigationItemSelectedListener true
                 }
+
             }
             false
         }
+
     }
 
     private fun initNavigationMenu() {

@@ -1,60 +1,154 @@
 package com.movie.moviebazaar.navigation
 
+import android.app.Activity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.google.android.gms.ads.*
+import com.google.android.gms.ads.reward.RewardItem
+import com.google.android.gms.ads.reward.RewardedVideoAd
+import com.google.android.gms.ads.reward.RewardedVideoAdListener
 import com.movie.moviebazaar.R
+import com.shankar.customtoast.Toasty
+import kotlinx.android.synthetic.main.fragment_earn.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [EarnF.newInstance] factory method to
- * create an instance of this fragment.
- */
-class EarnF : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class EarnF : Fragment(), RewardedVideoAdListener {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
+    private var mView: View? = null
+    lateinit var mAdView : AdView
+    private lateinit var mInterstitialAd: InterstitialAd
+    private lateinit var mRewardedVideoAd: RewardedVideoAd
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_earn, container, false)
+        mView = inflater.inflate(R.layout.fragment_earn, container, false)
+
+        MobileAds.initialize(context) {}
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(context)
+        mRewardedVideoAd.rewardedVideoAdListener = this
+
+        bannerAds()
+        interstitialAds()
+        loadVideoAd()
+        return mView
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment EarnF.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            EarnF().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun loadVideoAd() {
+
+
+        //Sample Video ad ID  ca-app-pub-3940256099942544/5224354917
+        //Real Video ad ID  ca-app-pub-5248287644539273/1549424190
+        mRewardedVideoAd.loadAd("ca-app-pub-5248287644539273/1549424190",
+            AdRequest.Builder().build())
+
     }
+
+    private fun interstitialAds() {
+
+        //Test InterstitialAd ID  ca-app-pub-3940256099942544/1033173712
+        //Real InterstitialAd ID  ca-app-pub-5248287644539273/1984716078
+        mInterstitialAd = InterstitialAd(context)
+        mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
+        mInterstitialAd.loadAd(AdRequest.Builder().build())
+
+
+        mInterstitialAd.adListener = object: AdListener() {
+            override fun onAdLoaded() {
+                interstitialAdText.text = " InterstitialAd Loaded Ready to display"
+                interstitialAdText.setOnClickListener { mInterstitialAd.show() }
+            }
+
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                // Code to be executed when an ad request fails.
+                interstitialAdText.text = "onAdFailedToLoad ${adError.message}"
+
+            }
+
+            override fun onAdOpened() {
+                // Code to be executed when the ad is displayed.
+            }
+
+            override fun onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            override fun onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            override fun onAdClosed() {
+                // Code to be executed when the interstitial ad is closed.
+                mInterstitialAd.loadAd(AdRequest.Builder().build())
+                interstitialAdText.text = " Reloading InterstitialAd...."
+            }
+        }
+    }
+
+    private fun bannerAds() {
+
+
+        mAdView = mView!!.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+    }
+
+    override fun onRewardedVideoAdLoaded() {
+
+        videoAdText.text = "Video Add Loaded"
+        videoAdText.setOnClickListener {
+            mRewardedVideoAd.show()
+        }
+
+    }
+
+    override fun onRewardedVideoAdOpened() {
+    }
+
+    override fun onRewardedVideoStarted() {
+    }
+
+    override fun onRewardedVideoAdClosed() {
+        loadVideoAd()
+        videoAdText.text = "Reloading Video Ad ...."
+
+
+    }
+
+    override fun onRewarded(p0: RewardItem?) {
+    }
+
+    override fun onRewardedVideoAdLeftApplication() {
+    }
+
+    override fun onRewardedVideoAdFailedToLoad(p0: Int) {
+        videoAdText.text = "onRewardedVideoAdFailedToLoad , Error code : $p0"
+
+    }
+
+    override fun onRewardedVideoCompleted() {
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mRewardedVideoAd.pause(context)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mRewardedVideoAd.resume(context)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mRewardedVideoAd.destroy(context)
+    }
+
 }

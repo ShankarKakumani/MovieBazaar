@@ -41,6 +41,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.movie.moviebazaar.MainActivity;
 import com.movie.moviebazaar.R;
+import com.movie.moviebazaar.activities.MovieInfo;
 import com.movie.moviebazaar.holder.MovieView;
 import com.movie.moviebazaar.model.MovieClass;
 import com.shankar.customtoast.Toasty;
@@ -238,10 +239,10 @@ public class HomeF extends Fragment implements BaseSliderView.OnSliderClickListe
                 holder.movieLayout.setOnClickListener(v -> {
                     assert movieName != null;
 
-                    Intent i = new Intent(getContext(), MainActivity.class);
+                    Intent i = new Intent(getContext(), MovieInfo.class);
 
                     Bundle bundle = new Bundle();
-                    i.putExtra("IMAGE_URlL", model.getImageUrlL());
+                    i.putExtra("imageUrl", model.getImageUrlL());
                     i.putExtra("movieName", movieName);
                     i.putExtra("movieYear", model.getMovieYear());
                     i.putExtra("trailerUrl", model.getTrailerUrl());
@@ -261,11 +262,10 @@ public class HomeF extends Fragment implements BaseSliderView.OnSliderClickListe
             public void onDataChanged() {
                 if(getItemCount() == 0)
                 {
-
                     Toasty.infoToast((Activity) getContext(),"No Movies Found");
                 }
                 else {
-                    Toasty.infoToast((Activity) getContext(),""+getItemCount());
+                    //Toasty.infoToast((Activity) getContext(),""+getItemCount());
 
                 }
                 latestShimmerLayout.setVisibility(View.GONE);

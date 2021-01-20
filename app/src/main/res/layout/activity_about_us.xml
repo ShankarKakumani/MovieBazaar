@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.AboutUs"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/toolbar_default"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp">
+
+        <include layout="@layout/layout_about_members_contributors"/>
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

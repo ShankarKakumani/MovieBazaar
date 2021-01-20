@@ -45,7 +45,7 @@
                     app:itemIconTint="@color/color_state_light"
                     app:itemTextColor="@color/color_state_light"
                     app:menu="@menu/bottom_nav"
-                    app:labelVisibilityMode="selected"
+                    app:labelVisibilityMode="labeled"
                     app:itemHorizontalTranslationEnabled="false"/>
                 <LinearLayout
                     android:id="@+id/ad_view"

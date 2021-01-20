@@ -3,8 +3,8 @@
 
     <item
         android:id="@+id/earn"
-        android:icon="@drawable/rupee"
-        android:title="Earn" />
+        android:icon="@drawable/ic_google"
+        android:title="Ads" />
 
     <item
         android:id="@+id/home"
