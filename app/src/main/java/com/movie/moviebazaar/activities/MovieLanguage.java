@@ -200,7 +200,6 @@ public class MovieLanguage extends AppCompatActivity {
                     i.putExtra("languageName", languageName);
 
 
-
                     i.putExtras(bundle);
                     startActivity(i);
 

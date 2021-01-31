@@ -14,7 +14,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.movie.moviebazaar.R
-import com.shankar.youtube_video_player.YoutubeVideoPlayer
+import com.movie.moviebazaar.player.Player
 import kotlinx.android.synthetic.main.activity_movie_info.*
 import java.util.*
 
@@ -46,10 +46,10 @@ class MovieInfo : AppCompatActivity() {
                 .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                 .addListener(object : RequestListener<Drawable?> {
                     override fun onLoadFailed(
-                            e: GlideException?,
-                            model: Any,
-                            target: Target<Drawable?>,
-                            isFirstResource: Boolean
+                        e: GlideException?,
+                        model: Any,
+                        target: Target<Drawable?>,
+                        isFirstResource: Boolean
                     ): Boolean {
                         imageProgressBar.visibility = View.GONE
 
@@ -57,11 +57,11 @@ class MovieInfo : AppCompatActivity() {
                     }
 
                     override fun onResourceReady(
-                            resource: Drawable?,
-                            model: Any,
-                            target: Target<Drawable?>,
-                            dataSource: DataSource,
-                            isFirstResource: Boolean
+                        resource: Drawable?,
+                        model: Any,
+                        target: Target<Drawable?>,
+                        dataSource: DataSource,
+                        isFirstResource: Boolean
                     ): Boolean {
                         imageProgressBar.visibility = View.GONE
                         return false
@@ -73,8 +73,14 @@ class MovieInfo : AppCompatActivity() {
 
         if(videoUrl != null)
         {
-            watchNow.setOnClickListener { YoutubeVideoPlayer.playVideo(this, videoUrl); }
-            playInYoutube.setOnClickListener { openInYoutube(videoUrl)}
+            watchNow.setOnClickListener {
+                val i = Intent(this, Player::class.java)
+                val b = Bundle()
+                i.putExtra("videoID", videoUrl)
+                i.putExtras(b)
+                this.startActivity(i)
+            }
+            playInYoutube.setOnClickListener { openInYoutube(videoUrl) }
 
         }
 
@@ -82,7 +88,10 @@ class MovieInfo : AppCompatActivity() {
 
     private fun openInYoutube(videoUrl: String)
     {
-        val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=$videoUrl"))
+        val webIntent = Intent(
+            Intent.ACTION_VIEW,
+            Uri.parse("https://www.youtube.com/watch?v=$videoUrl")
+        )
         try {
             this.startActivity(webIntent)
         } catch (ex: ActivityNotFoundException) {
