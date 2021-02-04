@@ -56,7 +56,7 @@ class EarnF : Fragment(), RewardedVideoAdListener {
         //Test InterstitialAd ID  ca-app-pub-3940256099942544/1033173712
         //Real InterstitialAd ID  ca-app-pub-5248287644539273/1984716078
         mInterstitialAd = InterstitialAd(context)
-        mInterstitialAd.adUnitId = "ca-app-pub-3940256099942544/1033173712"
+        mInterstitialAd.adUnitId = "ca-app-pub-5248287644539273/1984716078"
         mInterstitialAd.loadAd(AdRequest.Builder().build())
 
 

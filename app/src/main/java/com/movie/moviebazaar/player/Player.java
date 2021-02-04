@@ -30,7 +30,6 @@ import java.util.Objects;
 public class Player extends AppCompatActivity {
 
     YouTubePlayerView youTubePlayerView;
-    private PlayerConstants.PlaybackQuality playbackQuality;
     TextView qualityText;
 
 
@@ -74,6 +73,8 @@ public class Player extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
+
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -83,6 +84,8 @@ public class Player extends AppCompatActivity {
 
         mVisible = true;
         delayedHide(100);
+
+
     }
 
 
@@ -265,18 +268,27 @@ public class Player extends AppCompatActivity {
         }
     }
 
-
     private void initializeCustomButtons(float second,YouTubePlayer youTubePlayer) {
+
         Drawable customAction1Icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_replay_30_24);
         Drawable customAction2Icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_forward_30_24);
         assert customAction1Icon != null;
         assert customAction2Icon != null;
 
-        youTubePlayerView.getPlayerUiController().setCustomAction1(customAction1Icon, view ->
-                youTubePlayer.seekTo(second - 30));
+        youTubePlayerView.getPlayerUiController().setCustomAction1(customAction1Icon, view -> {
 
-        youTubePlayerView.getPlayerUiController().setCustomAction2(customAction2Icon, view ->
-                youTubePlayer.seekTo(second + 30));
+            youTubePlayer.seekTo(second - 30);
+            youTubePlayer.play();
+
+
+        });
+
+        youTubePlayerView.getPlayerUiController().setCustomAction2(customAction2Icon, view -> {
+            youTubePlayer.seekTo(second + 30);
+            youTubePlayer.play();
+
+        });
+
 
     }
 

@@ -42,6 +42,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.movie.moviebazaar.MainActivity;
 import com.movie.moviebazaar.R;
 import com.movie.moviebazaar.activities.MovieInfo;
+import com.movie.moviebazaar.activities.MovieLanguage;
 import com.movie.moviebazaar.holder.MovieView;
 import com.movie.moviebazaar.model.MovieClass;
 import com.shankar.customtoast.Toasty;
@@ -213,8 +214,8 @@ public class HomeF extends Fragment implements BaseSliderView.OnSliderClickListe
                         .load(IMAGE_URl)
                         .error(R.drawable.ph_rect_vertical)
                         .placeholder(R.drawable.ph_rect_vertical)
-                        .skipMemoryCache(false) //2
-                        .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC) //3
+                        .skipMemoryCache(false)
+                        .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                         .addListener(new RequestListener<Drawable>() {
                             @Override
                             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
@@ -231,7 +232,6 @@ public class HomeF extends Fragment implements BaseSliderView.OnSliderClickListe
                             }
                         })
                         .into(holder.movieImageView);
-
 
 
 
@@ -256,6 +256,7 @@ public class HomeF extends Fragment implements BaseSliderView.OnSliderClickListe
 
                 });
             }
+
 
             @SuppressLint("SetTextI18n")
             @Override
@@ -290,19 +291,23 @@ public class HomeF extends Fragment implements BaseSliderView.OnSliderClickListe
     @Override
     public void onSliderClick(BaseSliderView slider) {
 
-        //Toast.makeText(getContext(), slider.getBundle().getString("extra") + "", Toast.LENGTH_SHORT).show();
-//        Intent intent = new Intent(getContext(), MovieInfo.class);
-//        startActivity(intent);
+        Intent i = new Intent(getContext(), MovieLanguage.class);
+        Bundle bundle = new Bundle();
+        i.putExtra("languageName", "Telugu");
+        i.putExtras(bundle);
+        startActivity(i);
     }
 
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+
     }
 
     @Override
     public void onPageSelected(int position) {
+
     }
 
     @Override
