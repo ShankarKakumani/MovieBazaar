@@ -2,13 +2,14 @@ package com.movie.moviebazaar.model;
 
 public class Content {
 
-    public String title;
+    private String languageName;
 
-    public String getTitle() {
-        return title;
+
+    public String getLanguageName() {
+        return languageName;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setLanguageName(String languageName) {
+        this.languageName = languageName;
     }
 }

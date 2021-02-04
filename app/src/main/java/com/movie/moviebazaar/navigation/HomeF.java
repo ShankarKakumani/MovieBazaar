@@ -182,6 +182,12 @@ public class HomeF extends Fragment implements BaseSliderView.OnSliderClickListe
     }
 
 
+    private void loadContent(){
+
+
+    }
+
+
 
 
     private void loadLatestMovies() {

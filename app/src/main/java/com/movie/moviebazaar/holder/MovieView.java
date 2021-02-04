@@ -33,16 +33,10 @@ public class MovieView extends RecyclerView.ViewHolder implements View.OnClickLi
         itemView.setOnClickListener(this);
     }
 
-    public void setItemClickListener(ItemClickListener itemClickListener) {
-        this.itemClickListener = itemClickListener;
-    }
-
     @Override
     public void onClick(View v) {
         itemClickListener.onClick(v, getAdapterPosition(), false);
 
     }
 
-    public void setDetails(Context applicationContext, String subjectName) {
-    }
 }
