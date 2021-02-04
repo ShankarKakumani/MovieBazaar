@@ -5,7 +5,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -14,7 +13,7 @@ import com.movie.moviebazaar.R;
 public class ContentView extends RecyclerView.ViewHolder{
 
 
-    public CardView contentLayout;
+    public LinearLayout contentLayout;
     public TextView contentText;
     public RecyclerView contentRecycler;
     public ShimmerFrameLayout contentShimmer;

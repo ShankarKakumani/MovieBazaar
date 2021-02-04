@@ -1,70 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    android:id="@+id/contentLayout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<LinearLayout android:id="@+id/contentLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:visibility="visible"
+    android:layout_marginStart="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/contentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingStart="5dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
+            android:text="Latest Movies"
+            android:fontFamily="@font/ubuntu"
+            android:textColor="@color/blue_grey_200"
+            app:drawableEndCompat="@drawable/ic_arrow_right" />
+    </RelativeLayout>
 
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contentRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/black"
-        android:visibility="visible"
-        android:layout_marginStart="5dp"
-        >
+        android:visibility="visible">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/contentShimmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:shimmer_duration="1000">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/contentText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:paddingStart="5dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="10dp"
-                android:text="Latest Movies"
-                android:fontFamily="@font/ubuntu"
-                android:textColor="@color/blue_grey_200"
-                app:drawableEndCompat="@drawable/ic_arrow_right" />
-        </RelativeLayout>
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/contentRecycler"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="visible">
+            android:orientation="vertical">
+            <include layout="@layout/layout_shimmer_movies" />
 
-        </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
 
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/contentShimmer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:shimmer_duration="1000">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <include layout="@layout/layout_shimmer_movies" />
-
-            </LinearLayout>
-
-        </com.facebook.shimmer.ShimmerFrameLayout>
-
-    </LinearLayout>
-
-
-</androidx.cardview.widget.CardView>
+</LinearLayout>
