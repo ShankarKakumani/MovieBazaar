@@ -18,6 +18,13 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.movie.moviebazaar.R;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
@@ -33,6 +40,7 @@ public class Player extends AppCompatActivity {
     TextView qualityText;
 
 
+    AdView adview;
     //For Full Screen
 
     private static final int UI_ANIMATION_DELAY = 300;
@@ -80,14 +88,26 @@ public class Player extends AppCompatActivity {
         getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimaryDark));
 
         playYoutubeVideo();
+        bannerAds();
 
 
         mVisible = true;
         delayedHide(100);
-
-
     }
 
+    private void bannerAds() {
+
+//        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+//            @Override
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
+//            }
+//        });
+
+        adview = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adview.loadAd(adRequest);
+
+    }
 
 
     private void playYoutubeVideo() {
@@ -166,6 +186,9 @@ public class Player extends AppCompatActivity {
             @Override
             public void onYouTubePlayerEnterFullScreen() {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                adview.destroy();
+                adview.setVisibility(View.GONE);
+
             }
 
             @Override
@@ -173,6 +196,9 @@ public class Player extends AppCompatActivity {
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
                 removeCustomActionsFromPlayer();
+                adview.setVisibility(View.VISIBLE);
+                bannerAds();
+
             }
         });
     }
@@ -232,7 +258,7 @@ public class Player extends AppCompatActivity {
             case UNSTARTED:
             case ENDED:
                 removeCustomActionsFromPlayer();
-                //youTubePlayerView.exitFullScreen();
+                youTubePlayerView.exitFullScreen();
                 //setRequestedOrientation(SCREEN_ORIENTATION_PORTRAIT);
                 //adContainer.setVisibility(View.VISIBLE);
                 return;

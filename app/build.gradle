@@ -8,13 +8,13 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+        buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.movie.moviebazaar"
         minSdkVersion 22
         targetSdkVersion 30
-        versionCode 3
+        versionCode 4
         versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

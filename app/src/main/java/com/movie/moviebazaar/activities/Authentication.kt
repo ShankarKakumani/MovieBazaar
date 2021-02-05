@@ -45,7 +45,7 @@ class Authentication : AppCompatActivity() {
         pd = ProgressDialog(this,R.style.MyAlertDialogStyle)
         pd.setMessage("Loading ...")
         pd.setCancelable(false)
-        StatusBar.setStatusBarColorCustom(this,R.color.dark_gray)
+        StatusBar.setStatusBarColorCustom(this,R.color.black)
 
         googleSignIn.setOnClickListener { signIn() }
 

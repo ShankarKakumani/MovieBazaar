@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,24 +32,21 @@ import com.movie.moviebazaar.R;
 import com.movie.moviebazaar.holder.MovieView;
 import com.movie.moviebazaar.model.MovieClass;
 
-
 import java.util.Objects;
 
 
 public class MovieLanguage extends AppCompatActivity {
 
-    TextView languageText;
-
+    TextView languageText,toolBarText;
     RecyclerView latestRecycler;
     DatabaseReference mLatestMovies;
-    LinearLayoutManager latestLinearLayout;
 
     ShimmerFrameLayout latestShimmerLayout;
     private static FirebaseDatabase firebaseDatabase;
     private FirebaseRecyclerAdapter<MovieClass, MovieView> latestAdapter;
 
     TextView noMoviesText;
-    Button loadVideo;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +59,7 @@ public class MovieLanguage extends AppCompatActivity {
         }
 
         languageText = findViewById(R.id.languageText);
-
+        toolBarText = findViewById(R.id.asdfg);
         latestShimmerLayout = findViewById(R.id.latestShimmerLayout);
         latestShimmerLayout.startShimmer();
 
@@ -71,10 +67,19 @@ public class MovieLanguage extends AppCompatActivity {
         noMoviesText = findViewById(R.id.noMoviesText);
 
 
-        //FacebookAds();
-        //interstitialAd();
-        //rewardedVideoAd();
+        /*
+        FacebookAds();
+        interstitialAd();
+        rewardedVideoAd();
+        */
+        initToolbar();
         initializeRecyclerView();
+    }
+
+    private void initToolbar() {
+
+        findViewById(R.id.backButton).setOnClickListener(view -> finish());
+
     }
 
 
@@ -84,8 +89,10 @@ public class MovieLanguage extends AppCompatActivity {
 
         latestRecycler.hasFixedSize();
         LinearLayoutManager latestLinearLayout = new GridLayoutManager(getApplicationContext(),3);
-//        latestLinearLayout.setReverseLayout(true);
-//        latestLinearLayout.setStackFromEnd(true);
+/*
+        latestLinearLayout.setReverseLayout(true);
+        latestLinearLayout.setStackFromEnd(true);
+*/
         latestRecycler.setLayoutManager(latestLinearLayout);
         loadLatestMovies();
 
@@ -110,11 +117,11 @@ public class MovieLanguage extends AppCompatActivity {
 
     private void loadLatestMovies() {
 
-        Bundle bundle = getIntent().getExtras();
-        assert bundle != null;
+        bundle = getIntent().getExtras();
         String searchName = bundle.getString("searchName");
         String languageName = bundle.getString("languageName");
         assert languageName != null;
+
 
 
         mLatestMovies = FirebaseDatabase.getInstance().getReference("Movies").child(languageName);
@@ -192,7 +199,7 @@ public class MovieLanguage extends AppCompatActivity {
                     Intent i = new Intent(getApplicationContext(), MovieInfo.class);
 
                     Bundle bundle = new Bundle();
-                    i.putExtra("IMAGE_URlL", model.getImageUrlL());
+                    i.putExtra("imageUrl", model.getImageUrlL());
                     i.putExtra("movieName", movieName);
                     i.putExtra("movieYear", model.getMovieYear());
                     i.putExtra("trailerUrl", model.getTrailerUrl());
@@ -217,6 +224,8 @@ public class MovieLanguage extends AppCompatActivity {
                 }
                 else {
                     noMoviesText.setVisibility(View.GONE);
+                    toolBarText.setText(languageName+" Movies ( " + getItemCount()+" )");
+
                 }
             }
 

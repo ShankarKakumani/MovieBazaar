@@ -79,12 +79,12 @@ public class MoviesF extends Fragment {
 
         moviesRecycler = mView.findViewById(R.id.moviesRecycler);
         moviesRecycler.hasFixedSize();
-        LinearLayoutManager moviesLinearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        LinearLayoutManager moviesLinearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,true);
         moviesRecycler.setLayoutManager(moviesLinearLayoutManager);
 
 
         mLanguages = FirebaseDatabase.getInstance().getReference("Movies");
-        mLanguages.keepSynced(true);
+        //mLanguages.keepSynced(true);
         Query languages = mLanguages;
 
         FirebaseRecyclerOptions<Content> content = new FirebaseRecyclerOptions.Builder<Content>()
@@ -98,10 +98,10 @@ public class MoviesF extends Fragment {
 
                 String language = moviesAdapter.getRef(i).getKey();
 
-                if(language.equals("Latest"))
-                {
-                    viewHolder.contentLayout.setVisibility(View.GONE);
-                }
+//                if(language.equals("Latest"))
+//                {
+//                    viewHolder.contentLayout.setVisibility(View.GONE);
+//                }
                 viewHolder.contentText.setText(language+" Movies");
                 LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
                 layoutManager.setReverseLayout(true);
@@ -165,9 +165,8 @@ public class MoviesF extends Fragment {
 
                             Bundle bundle = new Bundle();
                             i.putExtra("imageUrl", model.getImageUrlL());
-                            i.putExtra("movieName", languageMoviesAdapter.getRef(position).getKey());
+                            i.putExtra("movieName", model.getMovieName());
                             i.putExtra("movieYear", model.getMovieYear());
-                            i.putExtra("trailerUrl", model.getTrailerUrl());
                             i.putExtra("videoUrl", model.getVideoUrl());
                             i.putExtra("languageName", language);
 
@@ -205,7 +204,6 @@ public class MoviesF extends Fragment {
 
         moviesRecycler.setAdapter(moviesAdapter);
         moviesAdapter.startListening();
-
 
     }
 

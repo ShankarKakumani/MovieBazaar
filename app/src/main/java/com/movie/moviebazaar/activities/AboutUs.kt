@@ -49,7 +49,7 @@ class AboutUs : AppCompatActivity() {
 
     private fun initToolbar() {
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(toolbarDefault)
         supportActionBar!!.title= "About Us"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
