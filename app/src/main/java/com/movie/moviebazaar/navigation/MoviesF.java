@@ -131,7 +131,7 @@ public class MoviesF extends Fragment {
                     protected void onBindViewHolder(@NonNull MovieView holder, final int position, @NonNull final MovieClass model) {
 
                         final String IMAGE_URl = model.getImageUrlP();
-                        final String movieName = languageMoviesAdapter.getRef(position).getKey();
+                        final String movieName = model.getMovieName();
 
                         viewHolder.contentShimmer.setVisibility(View.GONE);
                         holder.movieNameView.setText(movieName);

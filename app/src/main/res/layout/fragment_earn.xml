@@ -1,51 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".navigation.EarnF"
-    android:background="@color/black">
 
-    <!-- TODO: Update blank fragment layout -->
-    <!-- Real banner Ad id  ca-app-pub-5248287644539273/5700406280-->
-    <!-- Test banner Ad id  ca-app-pub-3940256099942544/6300978111"-->
+<layout>
+    <data>
+        <variable
+            name="user"
+            type="com.movie.moviebazaar.viewmodel.EarnViewModel" />
+    </data>
 
-
-    <TextView
-        android:id="@+id/interstitialAdText"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:layout_centerInParent="true"
-        android:text="Loading InterstitialAd...."
-        android:layout_margin="10dp"
-        />
+        android:layout_height="match_parent"
+        tools:context=".navigation.EarnF"
+        android:background="@color/black">
 
-    <TextView
-        android:id="@+id/videoAdText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:layout_marginTop="25dp"
-        android:layout_centerInParent="true"
-        android:text="Loading Video Ad...."
-        android:layout_below="@id/interstitialAdText"
-        />
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-5248287644539273/5700406280"
-        >
-    </com.google.android.gms.ads.AdView>
-    <!-- test       ads:adUnitId="ca-app-pub-3940256099942544/6300978111">-->
-    <!-- real       ads:adUnitId="ca-app-pub-5248287644539273/5700406280">-->
+        <!-- TODO: Update blank fragment layout -->
+        <!-- Real banner Ad id  ca-app-pub-5248287644539273/5700406280-->
+        <!-- Test banner Ad id  ca-app-pub-3940256099942544/6300978111"-->
 
 
-</RelativeLayout>
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+        <TextView
+            android:id="@+id/interstitialAdText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="Loading InterstitialAd...."
+            android:layout_margin="10dp"
+            />
+
+        <TextView
+            android:id="@+id/videoAdText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="25dp"
+            android:layout_centerInParent="true"
+            android:text="Loading Video Ad...."
+            android:layout_below="@id/interstitialAdText"
+            />
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-5248287644539273/5700406280"
+            >
+        </com.google.android.gms.ads.AdView>
+
+
+        <!-- test       ads:adUnitId="ca-app-pub-3940256099942544/6300978111">-->
+        <!-- real       ads:adUnitId="ca-app-pub-5248287644539273/5700406280">-->
+
+
+    </RelativeLayout>
+</layout>

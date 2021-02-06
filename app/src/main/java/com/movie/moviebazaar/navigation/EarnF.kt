@@ -1,6 +1,5 @@
 package com.movie.moviebazaar.navigation
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import com.google.android.gms.ads.reward.RewardItem
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import com.google.android.gms.ads.reward.RewardedVideoAdListener
 import com.movie.moviebazaar.R
-import com.shankar.customtoast.Toasty
 import kotlinx.android.synthetic.main.fragment_earn.*
 
 
