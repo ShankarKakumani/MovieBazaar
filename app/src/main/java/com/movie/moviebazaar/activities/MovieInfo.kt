@@ -13,16 +13,22 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import com.movie.moviebazaar.R
 import com.movie.moviebazaar.player.Player
 import kotlinx.android.synthetic.main.activity_movie_info.*
-import java.util.*
 
 
 class MovieInfo : AppCompatActivity() {
+
+
+    lateinit var mAdView : AdView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_info)
+
 
 
         val bundle = intent.extras!!
@@ -46,10 +52,10 @@ class MovieInfo : AppCompatActivity() {
                 .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                 .addListener(object : RequestListener<Drawable?> {
                     override fun onLoadFailed(
-                        e: GlideException?,
-                        model: Any,
-                        target: Target<Drawable?>,
-                        isFirstResource: Boolean
+                            e: GlideException?,
+                            model: Any,
+                            target: Target<Drawable?>,
+                            isFirstResource: Boolean
                     ): Boolean {
                         imageProgressBar.visibility = View.GONE
 
@@ -57,11 +63,11 @@ class MovieInfo : AppCompatActivity() {
                     }
 
                     override fun onResourceReady(
-                        resource: Drawable?,
-                        model: Any,
-                        target: Target<Drawable?>,
-                        dataSource: DataSource,
-                        isFirstResource: Boolean
+                            resource: Drawable?,
+                            model: Any,
+                            target: Target<Drawable?>,
+                            dataSource: DataSource,
+                            isFirstResource: Boolean
                     ): Boolean {
                         imageProgressBar.visibility = View.GONE
                         return false
@@ -80,17 +86,29 @@ class MovieInfo : AppCompatActivity() {
                 i.putExtras(b)
                 this.startActivity(i)
             }
+//            playInYoutube.setOnClickListener { openInYoutube(videoUrl) }
             playInYoutube.setOnClickListener { openInYoutube(videoUrl) }
 
         }
+
+        bannerAds()
+
+
+    }
+
+
+
+    private fun bannerAds() {
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
     }
 
     private fun openInYoutube(videoUrl: String)
     {
         val webIntent = Intent(
-            Intent.ACTION_VIEW,
-            Uri.parse("https://www.youtube.com/watch?v=$videoUrl")
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.youtube.com/watch?v=$videoUrl")
         )
         try {
             this.startActivity(webIntent)

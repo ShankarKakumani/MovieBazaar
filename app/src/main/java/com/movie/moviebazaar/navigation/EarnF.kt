@@ -1,5 +1,6 @@
 package com.movie.moviebazaar.navigation
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.google.android.gms.ads.reward.RewardItem
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import com.google.android.gms.ads.reward.RewardedVideoAdListener
 import com.movie.moviebazaar.R
+import com.shankar.customtoast.Toasty
 import kotlinx.android.synthetic.main.fragment_earn.*
 
 
@@ -36,7 +38,14 @@ class EarnF : Fragment(), RewardedVideoAdListener {
         bannerAds()
         interstitialAds()
         loadVideoAd()
+        wheelView()
+
         return mView
+
+    }
+
+    private fun wheelView() {
+
     }
 
     private fun loadVideoAd() {
@@ -60,16 +69,22 @@ class EarnF : Fragment(), RewardedVideoAdListener {
 
         mInterstitialAd.adListener = object: AdListener() {
             override fun onAdLoaded() {
-                interstitialAdText.text = " InterstitialAd Loaded Ready to display"
-                interstitialAdText.setOnClickListener { mInterstitialAd.show() }
+                interstitialAdText.text = getString(R.string.watch)
+                interstitialCard.isEnabled = true
+                interstitialCard.setOnClickListener { mInterstitialAd.show() }
             }
 
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 // Code to be executed when an ad request fails.
-                interstitialAdText.text = "onAdFailedToLoad ${adError.message}"
+                interstitialAdText.text = getString(R.string.error)
+                interstitialCard.isEnabled = false
 
             }
 
+            override fun onAdImpression() {
+                super.onAdImpression()
+                Toasty.infoToast(context as Activity,"onAdImpression")
+            }
             override fun onAdOpened() {
                 // Code to be executed when the ad is displayed.
             }
@@ -84,8 +99,9 @@ class EarnF : Fragment(), RewardedVideoAdListener {
 
             override fun onAdClosed() {
                 // Code to be executed when the interstitial ad is closed.
+                interstitialCard.isEnabled = false
+                interstitialAdText.text = getString(R.string.reloading)
                 mInterstitialAd.loadAd(AdRequest.Builder().build())
-                interstitialAdText.text = " Reloading InterstitialAd...."
             }
         }
     }
@@ -96,15 +112,15 @@ class EarnF : Fragment(), RewardedVideoAdListener {
         mAdView = mView!!.findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
+
+
     }
 
     override fun onRewardedVideoAdLoaded() {
 
-        videoAdText.text = "Video Add Loaded"
-        videoAdText.setOnClickListener {
-            mRewardedVideoAd.show()
-        }
-
+        videoCard.isEnabled = true
+        watch.text = getString(R.string.watch)
+        videoCard.setOnClickListener { mRewardedVideoAd.show() }
     }
 
     override fun onRewardedVideoAdOpened() {
@@ -114,26 +130,29 @@ class EarnF : Fragment(), RewardedVideoAdListener {
     }
 
     override fun onRewardedVideoAdClosed() {
+        watch.text = getString(R.string.reloading)
         loadVideoAd()
-        videoAdText.text = "Reloading Video Ad ...."
-
-
+        videoCard.isEnabled = false
     }
 
     override fun onRewarded(p0: RewardItem?) {
+
+        Toasty.successToast(context as Activity,"Reward Successful + 20")
     }
 
     override fun onRewardedVideoAdLeftApplication() {
+
     }
 
     override fun onRewardedVideoAdFailedToLoad(p0: Int) {
-        videoAdText.text = "onRewardedVideoAdFailedToLoad , Error code : $p0"
+        watch.text = getString(R.string.error)
+        videoCard.isEnabled = false
 
     }
 
     override fun onRewardedVideoCompleted() {
-    }
 
+    }
     override fun onPause() {
         super.onPause()
         mRewardedVideoAd.pause(context)
@@ -142,6 +161,7 @@ class EarnF : Fragment(), RewardedVideoAdListener {
     override fun onResume() {
         super.onResume()
         mRewardedVideoAd.resume(context)
+        bannerAds()
     }
 
     override fun onDestroy() {

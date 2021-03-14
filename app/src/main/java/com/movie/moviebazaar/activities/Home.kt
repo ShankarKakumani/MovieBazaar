@@ -24,6 +24,7 @@ import com.movie.moviebazaar.R
 import com.movie.moviebazaar.navigation.EarnF
 import com.movie.moviebazaar.navigation.HomeF
 import com.movie.moviebazaar.navigation.MoviesF
+import com.movie.moviebazaar.utils.Tools
 import com.shankar.customtoast.StatusBar
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_home.toolbar
@@ -46,7 +47,9 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+//        Tools.loadDataUsingVolley(this);
         MobileAds.initialize(this) {}
+        
 
         parentView = findViewById(android.R.id.content)
         initNavigationMenu()

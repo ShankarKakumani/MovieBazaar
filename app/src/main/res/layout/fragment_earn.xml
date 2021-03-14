@@ -1,82 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
-    <data>
-        <variable
-            name="user"
-            type="com.movie.moviebazaar.viewmodel.EarnViewModel" />
-    </data>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".navigation.EarnF"
+    android:background="@color/black">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <!-- TODO: Update blank fragment layout -->
+    <!-- Real banner Ad id  ca-app-pub-5248287644539273/5700406280-->
+    <!-- Test banner Ad id  ca-app-pub-3940256099942544/6300978111"-->
+
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".navigation.EarnF"
-        android:background="@color/black">
 
-        <!-- TODO: Update blank fragment layout -->
-        <!-- Real banner Ad id  ca-app-pub-5248287644539273/5700406280-->
-        <!-- Test banner Ad id  ca-app-pub-3940256099942544/6300978111"-->
-
-
-        <androidx.core.widget.NestedScrollView
+        >
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:orientation="vertical"
             >
-            <LinearLayout
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="6dp"
+                app:cardBackgroundColor="@color/transparent"
                 >
-
-                <TextView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
+                    android:layout_height="?attr/actionBarSize"
+                    android:orientation="horizontal"
+                    android:background="@color/dark_gray"
+                    android:layout_centerVertical="true"
+                    >
+
+                    <ImageView
+                        android:id="@+id/creditImage"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/ic_credit"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:scaleType="centerInside"
+                        />
+
+                    <TextView
+                        android:layout_toEndOf="@+id/creditImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="My Credits - 0"
+                        android:gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/white"
+                        />
 
 
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-        <TextView
-            android:id="@+id/interstitialAdText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:layout_centerInParent="true"
-            android:text="Loading InterstitialAd...."
-            android:layout_margin="10dp"
-            />
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="10dp"
+                        app:cardCornerRadius="5dp"
+                        style="@style/SelectableItemBackground"
+                        app:cardBackgroundColor="@color/blue_grey_800"
+                        >
 
-        <TextView
-            android:id="@+id/videoAdText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:layout_marginTop="25dp"
-            android:layout_centerInParent="true"
-            android:text="Loading Video Ad...."
-            android:layout_below="@id/interstitialAdText"
-            />
-
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/adView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-5248287644539273/5700406280"
-            >
-        </com.google.android.gms.ads.AdView>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Convert"
+                            android:fontFamily="@font/ubuntu"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:textColor="@color/white"
+                            />
 
 
-        <!-- test       ads:adUnitId="ca-app-pub-3940256099942544/6300978111">-->
-        <!-- real       ads:adUnitId="ca-app-pub-5248287644539273/5700406280">-->
+                    </androidx.cardview.widget.CardView>
 
 
-    </RelativeLayout>
-</layout>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="6dp"
+                app:cardBackgroundColor="@color/transparent"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:orientation="horizontal"
+                    android:background="@color/dark_gray"
+                    android:layout_centerVertical="true"
+                    >
+
+                    <ImageView
+                        android:id="@+id/interstitialAdImage"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/ic_blue_gift"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:scaleType="centerInside"
+                        />
+
+                    <TextView
+                        android:layout_toEndOf="@+id/interstitialAdImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Interstitial Ad   + 10"
+                        android:gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/white"
+                        />
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/interstitialCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="10dp"
+                        app:cardCornerRadius="5dp"
+                        style="@style/SelectableItemBackground"
+                        app:cardBackgroundColor="@color/blue_grey_800"
+                        >
+
+                        <TextView
+                            android:id="@+id/interstitialAdText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/loading"
+                            android:fontFamily="@font/ubuntu"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:textColor="@color/white"
+                            />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="6dp"
+                app:cardBackgroundColor="@color/transparent"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:orientation="horizontal"
+                    android:background="@color/dark_gray"
+                    android:layout_centerVertical="true"
+                    >
+
+                    <ImageView
+                        android:id="@+id/VideoAdImage"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/ic_gift"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:scaleType="centerInside"
+                        />
+
+                    <TextView
+                        android:layout_toEndOf="@+id/VideoAdImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Video Ad   + 20"
+                        android:gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/white"
+                        />
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/videoCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        style="@style/SelectableItemBackground"
+                        android:layout_marginEnd="10dp"
+                        app:cardCornerRadius="5dp"
+                        android:background="?attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/blue_grey_800"
+                        >
+
+                        <TextView
+                            android:id="@+id/watch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/loading"
+                            android:fontFamily="@font/ubuntu"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:textColor="@color/white"
+                            />
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-5248287644539273/5700406280"
+        >
+    </com.google.android.gms.ads.AdView>
+
+
+    <!-- test       ads:adUnitId="ca-app-pub-3940256099942544/6300978111">-->
+    <!-- real       ads:adUnitId="ca-app-pub-5248287644539273/5700406280">-->
+
+
+</RelativeLayout>
