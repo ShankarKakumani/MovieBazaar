@@ -1,4 +1,4 @@
-package com.movie.moviebazaar.activities
+package com.movie.moviebazaar.ui.activities
 
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -16,11 +16,11 @@ import com.bumptech.glide.request.target.Target
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.movie.moviebazaar.R
-import com.movie.moviebazaar.player.Player
+import com.movie.moviebazaar.ui.player.Player
 import kotlinx.android.synthetic.main.activity_movie_info.*
 
 
-class MovieInfo : AppCompatActivity() {
+class MovieInfoActivity : AppCompatActivity() {
 
 
     lateinit var mAdView : AdView

@@ -1,4 +1,4 @@
-package com.movie.moviebazaar.activities;
+package com.movie.moviebazaar.ui.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -29,13 +29,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.movie.moviebazaar.R;
-import com.movie.moviebazaar.holder.MovieView;
-import com.movie.moviebazaar.model.MovieClass;
+import com.movie.moviebazaar.helper.recyclerview.holder.MovieView;
+import com.movie.moviebazaar.helper.recyclerview.model.MovieClass;
 
 import java.util.Objects;
 
 
-public class MovieLanguage extends AppCompatActivity {
+public class MovieLanguageActivity extends AppCompatActivity {
 
     TextView languageText,toolBarText;
     RecyclerView latestRecycler;
@@ -196,7 +196,7 @@ public class MovieLanguage extends AppCompatActivity {
 
 
                 holder.movieLayout.setOnClickListener(v -> {
-                    Intent i = new Intent(getApplicationContext(), MovieInfo.class);
+                    Intent i = new Intent(getApplicationContext(), MovieInfoActivity.class);
 
                     Bundle bundle = new Bundle();
                     i.putExtra("imageUrl", model.getImageUrlL());

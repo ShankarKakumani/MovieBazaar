@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black"
     android:orientation="vertical"
-    tools:context=".navigation.MoviesF">
+    tools:context=".ui.fragments.MoviesFragment">
 
 
     <androidx.core.widget.NestedScrollView

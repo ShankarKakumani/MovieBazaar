@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activities.AboutUs"
+    tools:context=".ui.activities.AboutUsActivity"
     android:background="@color/black"
     android:orientation="vertical">
 

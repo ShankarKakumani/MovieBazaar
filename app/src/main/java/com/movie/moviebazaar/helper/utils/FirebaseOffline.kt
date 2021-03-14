@@ -1,4 +1,4 @@
-package com.movie.moviebazaar.offline
+package com.movie.moviebazaar.helper.utils
 
 import android.app.Application
 import com.google.firebase.database.FirebaseDatabase

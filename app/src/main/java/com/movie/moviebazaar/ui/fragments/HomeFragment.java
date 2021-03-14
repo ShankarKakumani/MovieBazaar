@@ -1,4 +1,4 @@
-package com.movie.moviebazaar.navigation;
+package com.movie.moviebazaar.ui.fragments;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -33,18 +33,14 @@ import com.glide.slider.library.slidertypes.BaseSliderView;
 import com.glide.slider.library.slidertypes.DefaultSliderView;
 import com.glide.slider.library.tricks.ViewPagerEx;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-import com.movie.moviebazaar.MainActivity;
 import com.movie.moviebazaar.R;
-import com.movie.moviebazaar.activities.MovieInfo;
-import com.movie.moviebazaar.activities.MovieLanguage;
-import com.movie.moviebazaar.holder.MovieView;
-import com.movie.moviebazaar.model.MovieClass;
+import com.movie.moviebazaar.ui.activities.MovieInfoActivity;
+import com.movie.moviebazaar.ui.activities.MovieLanguageActivity;
+import com.movie.moviebazaar.helper.recyclerview.holder.MovieView;
+import com.movie.moviebazaar.helper.recyclerview.model.MovieClass;
 import com.shankar.customtoast.Toasty;
 
 
@@ -52,33 +48,30 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
-public class HomeF extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
+public class HomeFragment extends Fragment implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
 
-    public HomeF() {
+    public HomeFragment() {
         // Required empty public constructor
     }
 
     private View mView;
-
     RecyclerView latestRecycler;
     DatabaseReference mLatestMovies , mSliderImages;
     private FirebaseRecyclerAdapter<MovieClass, MovieView> latestAdapter;
-
     private SliderLayout mDemoSlider;
     LinearLayoutManager latestLinearLayout;
-
     ShimmerFrameLayout latestShimmerLayout;
-
     BottomNavigationView navigation;
     TextView latestMoviesText;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        navigation = (BottomNavigationView) mView.findViewById(R.id.navigation);
+        navigation = mView.findViewById(R.id.navigation);
 
 
         latestShimmerLayout = mView.findViewById(R.id.latestShimmerLayout);
@@ -187,9 +180,6 @@ public class HomeF extends Fragment implements BaseSliderView.OnSliderClickListe
 
     }
 
-
-
-
     private void loadLatestMovies() {
         Query moviesList;
         mLatestMovies = FirebaseDatabase.getInstance().getReference("Movies").child("Latest");
@@ -245,7 +235,7 @@ public class HomeF extends Fragment implements BaseSliderView.OnSliderClickListe
                 holder.movieLayout.setOnClickListener(v -> {
                     assert movieName != null;
 
-                    Intent i = new Intent(getContext(), MovieInfo.class);
+                    Intent i = new Intent(getContext(), MovieInfoActivity.class);
 
                     Bundle bundle = new Bundle();
                     i.putExtra("imageUrl", model.getImageUrlL());
@@ -293,11 +283,10 @@ public class HomeF extends Fragment implements BaseSliderView.OnSliderClickListe
 
     }
 
-
     @Override
     public void onSliderClick(BaseSliderView slider) {
 
-        Intent i = new Intent(getContext(), MovieLanguage.class);
+        Intent i = new Intent(getContext(), MovieLanguageActivity.class);
         Bundle bundle = new Bundle();
         i.putExtra("languageName", "Telugu");
         i.putExtras(bundle);

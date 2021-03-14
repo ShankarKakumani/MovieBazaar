@@ -1,4 +1,4 @@
-package com.movie.moviebazaar.navigation;
+package com.movie.moviebazaar.ui.fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,19 +20,18 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.movie.moviebazaar.R;
-import com.movie.moviebazaar.activities.MovieInfo;
-import com.movie.moviebazaar.activities.MovieLanguage;
-import com.movie.moviebazaar.holder.ContentView;
-import com.movie.moviebazaar.holder.MovieView;
-import com.movie.moviebazaar.model.Content;
-import com.movie.moviebazaar.model.MovieClass;
+import com.movie.moviebazaar.ui.activities.MovieInfoActivity;
+import com.movie.moviebazaar.ui.activities.MovieLanguageActivity;
+import com.movie.moviebazaar.helper.recyclerview.holder.ContentView;
+import com.movie.moviebazaar.helper.recyclerview.holder.MovieView;
+import com.movie.moviebazaar.helper.recyclerview.model.Content;
+import com.movie.moviebazaar.helper.recyclerview.model.MovieClass;
 
 
 import java.util.Objects;
@@ -41,9 +39,9 @@ import java.util.Objects;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MoviesF extends Fragment {
+public class MoviesFragment extends Fragment {
 
-    public MoviesF() {
+    public MoviesFragment() {
         // Required empty public constructor
     }
 
@@ -110,7 +108,7 @@ public class MoviesF extends Fragment {
 
                 viewHolder.contentText.setOnClickListener(v -> {
 
-                    Intent languageIntent = new Intent(getContext(), MovieLanguage.class);
+                    Intent languageIntent = new Intent(getContext(), MovieLanguageActivity.class);
                     Bundle bundle = new Bundle();
                     languageIntent.putExtra("languageName", language);
                     languageIntent.putExtras(bundle);
@@ -161,7 +159,7 @@ public class MoviesF extends Fragment {
                                 .into(holder.movieImageView);
 
                         holder.movieLayout.setOnClickListener(v -> {
-                            Intent i = new Intent(getContext(), MovieInfo.class);
+                            Intent i = new Intent(getContext(), MovieInfoActivity.class);
 
                             Bundle bundle = new Bundle();
                             i.putExtra("imageUrl", model.getImageUrlL());

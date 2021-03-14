@@ -1,4 +1,4 @@
-package com.movie.moviebazaar.model;
+package com.movie.moviebazaar.helper.recyclerview.model;
 
 public class MovieClass {
     private String movieName, imageUrlP ,imageUrlL , movieYear, videoUrl, trailerUrl;

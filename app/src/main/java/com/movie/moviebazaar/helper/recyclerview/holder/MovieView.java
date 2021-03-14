@@ -1,6 +1,5 @@
-package com.movie.moviebazaar.holder;
+package com.movie.moviebazaar.helper.recyclerview.holder;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;

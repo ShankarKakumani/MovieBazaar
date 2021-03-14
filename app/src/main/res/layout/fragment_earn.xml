@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".navigation.EarnF"
     android:background="@color/black">
 
     <!-- TODO: Update blank fragment layout -->
@@ -235,18 +234,6 @@
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-5248287644539273/5700406280"
-        >
-    </com.google.android.gms.ads.AdView>
 
 
     <!-- test       ads:adUnitId="ca-app-pub-3940256099942544/6300978111">-->

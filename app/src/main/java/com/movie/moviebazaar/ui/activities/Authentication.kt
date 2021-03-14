@@ -1,12 +1,10 @@
 @file:Suppress("DEPRECATION")
 
-package com.movie.moviebazaar.activities
+package com.movie.moviebazaar.ui.activities
 
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -16,10 +14,6 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.movie.moviebazaar.R
 import com.shankar.customtoast.Snacky
@@ -96,7 +90,7 @@ class Authentication : AppCompatActivity() {
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        startActivity(Intent(this@Authentication, Home::class.java))
+                        startActivity(Intent(this@Authentication, HomeActivity::class.java))
                         finish()
 
                     } else {
@@ -114,7 +108,7 @@ class Authentication : AppCompatActivity() {
         val user = Firebase.auth.currentUser
         if (user != null) {
             // User is signed in
-            startActivity(Intent(this, Home::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
 

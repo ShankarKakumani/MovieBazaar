@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <application
-        android:name=".offline.FirebaseOffline"
+        android:name=".helper.utils.FirebaseOffline"
         android:allowBackup="true"
         android:icon="@drawable/popcorn"
         android:label="@string/app_name"
@@ -15,18 +15,18 @@
         android:theme="@style/Theme.Moviebazaar">
 
 
-        <activity android:name=".activities.AboutUs"
+        <activity android:name="com.movie.moviebazaar.ui.activities.AboutUsActivity"
             android:configChanges="orientation|screenSize|locale"
             android:screenOrientation="sensorPortrait"
             />
 
-        <activity android:name=".activities.MovieInfo"
+        <activity android:name="com.movie.moviebazaar.ui.activities.MovieInfoActivity"
             android:configChanges="orientation|screenSize|locale"
             android:screenOrientation="sensorPortrait"
             />
 
         <activity
-            android:name=".activities.Authentication"
+            android:name="com.movie.moviebazaar.ui.activities.Authentication"
             android:theme="@style/SplashTheme"
             android:configChanges="orientation|screenSize|locale"
             android:screenOrientation="sensorPortrait"
@@ -38,22 +38,22 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".ui.activities.MainActivity"
             android:configChanges="orientation|screenSize|locale"
             android:screenOrientation="sensorPortrait"
             />
 
-        <activity android:name=".activities.Home"
+        <activity android:name="com.movie.moviebazaar.ui.activities.HomeActivity"
             android:configChanges="orientation|screenSize|locale"
             android:screenOrientation="sensorPortrait"
             />
 
-        <activity android:name=".activities.MovieLanguage"
+        <activity android:name="com.movie.moviebazaar.ui.activities.MovieLanguageActivity"
             android:configChanges="orientation|screenSize|locale"
             android:screenOrientation="sensorPortrait"
             />
 
-        <activity android:name=".player.Player"
+        <activity android:name=".ui.player.Player"
             android:configChanges="orientation|screenSize|locale"
             android:screenOrientation="sensorPortrait"
             />

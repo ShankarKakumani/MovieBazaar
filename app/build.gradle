@@ -5,7 +5,6 @@ plugins {
     id 'kotlin-android-extensions'
     id 'com.google.firebase.crashlytics'
     id 'kotlin-kapt'
-
 }
 
 android {
@@ -50,7 +49,6 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     //MVVM
-
     def lifecycle_version = "2.2.0"
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
@@ -75,17 +73,12 @@ dependencies {
 
     //Google
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
-    implementation 'com.google.android.gms:play-services-ads:19.7.0'
 
     //Lopez
     implementation 'com.mikhaellopez:circularimageview:3.2.0'
 
     //Shankar Kakumani
     implementation 'com.github.ShankarKakumani:CustomToast:v1.0.8'
-
-
-    //Spinning Wheel
-    implementation 'com.adefruandta.spinningwheel:spinningwheel:0.1.0'
 
 
     //others

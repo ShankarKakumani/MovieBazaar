@@ -1,4 +1,4 @@
-package com.movie.moviebazaar.holder
+package com.movie.moviebazaar.helper.recyclerview.holder
 
 import android.view.View
 
