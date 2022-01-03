@@ -12,6 +12,7 @@ import com.movie.moviebazaar.R;
 
 public class ContentView extends RecyclerView.ViewHolder{
 
+    //cool
 
     public LinearLayout contentLayout;
     public TextView contentText;
